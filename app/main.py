@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import pandas as pd
+from app.models.transaction import Transaction
 
 from app.services.analyzer import calculate_summary
 from app.services.categorizer import categorize
@@ -15,12 +16,22 @@ def health():
 @app.get("/summary")
 def get_summary():
     df = pd.read_csv(DATA_PATH)
+    df['date'] = pd.to_datetime(df['date'])
 
-    df["category"] = [
-        categorize(desc) for desc in df["description"]
-    ]
+    transactions = []
+    for _, row in df.iterrows():
+        transaction = Transaction(
+            date=row['date'],
+            amount=row['amount'],
+            description=row['description'],
+            category=None
+        )
+        transactions.append(transaction)
+    
+    for t in transactions:
+        t.category = categorize(t.description)
 
-    summary = calculate_summary(df)
+    summary = calculate_summary(transactions)
 
     print(summary)
 
