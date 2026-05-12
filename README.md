@@ -2,19 +2,16 @@
 
 A Python-based API service for analyzing personal expenses, categorizing transactions, and generating AI-powered financial insights.
 
-🚀 Features
-📊 Transaction analysis using pandas
-🏷️ Automatic expense categorization
-🤖 AI-generated financial advice
-⚡ Fast REST API built with FastAPI
-📈 Ready for extension (ML, DB, dashboards)
-🧠 Tech Stack
-Python 3.11+
-FastAPI
-Pandas / NumPy
-Requests (API integration)
-Pydantic (data validation)
-Uvicorn (ASGI server)
+🏷️ Automatic expense categorization  
+🤖 AI-generated financial advice  
+⚡ Fast REST API built with FastAPI  
+📈 Ready for extension (ML, DB, dashboards)  
+🧠 Tech Stack  
+Python 3.11+  
+FastAPI  
+Requests (API integration)  
+Pydantic (data validation)  
+Uvicorn (ASGI server)  
 
 
 ⚙️ Setup
